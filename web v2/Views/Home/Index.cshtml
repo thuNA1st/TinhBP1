@@ -1,0 +1,101 @@
+﻿@model string
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm bình phương của một số</title>
+    <style>
+        /* Đặt font và căn giữa form */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://img6.thuthuatphanmem.vn/uploads/2022/04/15/anh-nen-tuong-yasuo-4k_040627692.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Khung chứa form */
+        .form-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* Tiêu đề của form */
+        h2 {
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        /* Style cho input */
+        .form-input {
+            width: 90%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        /* Hiệu ứng khi focus vào input */
+        .form-input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        /* Style cho nút submit */
+        .form-btn {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Hiệu ứng hover cho nút */
+        .form-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Style cho kết quả */
+        .result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Tính bình phương của một số</h2>
+        <form action="/Home/CalculateSquare" method="post">
+            <input type="number" step="any" name="number" placeholder="Nhập số vào đây" class="form-input" required>
+            <button type="submit" class="form-btn">Tính</button>
+        </form>
+
+        @if (ViewData["Result"] != null)
+        {
+            <div class="result">
+                Bình phương của số nhập vào là: @ViewData["Result"]
+            </div>
+        }
+    </div>
+
+</body>
+</html>
